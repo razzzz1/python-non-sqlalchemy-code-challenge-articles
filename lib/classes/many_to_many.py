@@ -149,4 +149,4 @@ class Magazine:
             return list_of_authors
         else:
             return None
-        
+        #pass.

@@ -1,5 +1,9 @@
 import pytest
-from classes.many_to_many import Article, Magazine, Author
+
+from classes.many_to_many import Article
+from classes.many_to_many import Magazine
+from classes.many_to_many import Author
+
 
 class TestArticle:
     """Article in many_to_many.py"""
@@ -20,11 +24,13 @@ class TestArticle:
         magazine = Magazine("Vogue", "Fashion")
         article_1 = Article(author, magazine, "How to wear a tutu with style")
 
-        # Check if title remains unchanged when setting it to a non-string value
+        
         article_1.title = 500
         assert article_1.title == "How to wear a tutu with style"
         
         assert isinstance(article_1.title, str)
+
+    
 
     def test_title_is_valid(self):
         """title is between 5 and 50 characters inclusive"""
@@ -33,6 +39,8 @@ class TestArticle:
         article_1 = Article(author, magazine, "How to wear a tutu with style")
 
         assert 5 <= len(article_1.title) <= 50
+
+        
 
     def test_has_an_author(self):
         """article has an author"""
