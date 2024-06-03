@@ -2,10 +2,10 @@ import pytest
 from classes.many_to_many import Article, Magazine, Author
 
 class TestAuthor:
-    """Author in many_to_many.py"""
+    
 
     def test_has_name(self):
-        """Author is initialized with a name"""
+        
         author_1 = Author("Carry Bradshaw")
         author_2 = Author("Nathaniel Hawthorne")
         magazine = Magazine("Vogue", "Fashion")
@@ -23,15 +23,15 @@ class TestAuthor:
         assert isinstance(author_1.name, str)
         assert isinstance(author_2.name, str)
 
-        # Check if name remains unchanged when attempting to modify it
+        
         author_1.name = "ActuallyTopher"
         assert author_1.name == "Carry Bradshaw"
 
-        author_2.name = 2  # This should not change the name
+        author_2.name = 2  
         assert author_2.name == "Nathaniel Hawthorne"
 
     def test_name_len(self):
-        """author name is longer than 0 characters"""
+        
         author_1 = Author("Carry Bradshaw")
         author_2 = Author("Nathaniel Hawthorne")
 
@@ -41,7 +41,7 @@ class TestAuthor:
         assert len(author_2.name) > 0
 
     def test_has_many_articles(self):
-        """author has many articles"""
+        
         author_1 = Author("Carry Bradshaw")
         author_2 = Author("Nathaniel Hawthorne")
         magazine = Magazine("Vogue", "Fashion")
@@ -57,7 +57,7 @@ class TestAuthor:
         assert article_3 in author_2.articles()
 
     def test_articles_of_type_articles(self):
-        """author articles are of type Article"""
+        
         author_1 = Author("Carry Bradshaw")
         author_2 = Author("Nathaniel Hawthorne")
         magazine = Magazine("Vogue", "Fashion")
@@ -68,7 +68,7 @@ class TestAuthor:
         assert isinstance(author_2.articles()[0], Article)
 
     def test_has_many_magazines(self):
-        """author has many magazines"""
+        
         author_1 = Author("Carry Bradshaw")
         magazine_1 = Magazine("Vogue", "Fashion")
         magazine_2 = Magazine("AD", "Architecture")
@@ -81,7 +81,7 @@ class TestAuthor:
         assert magazine_3 not in author_1.magazines()
 
     def test_magazines_of_type_magazine(self):
-        """author magazines are of type Magazine"""
+        
         author_1 = Author("Carry Bradshaw")
         author_2 = Author("Nathaniel Hawthorne")
         magazine_1 = Magazine("Vogue", "Fashion")
@@ -96,7 +96,7 @@ class TestAuthor:
         assert isinstance(author_2.magazines()[0], Magazine)
 
     def test_magazines_are_unique(self):
-        """author magazines are unique"""
+        
         author_1 = Author("Carry Bradshaw")
         magazine_1 = Magazine("Vogue", "Fashion")
         magazine_2 = Magazine("AD", "Architecture")
@@ -108,7 +108,7 @@ class TestAuthor:
         assert len(author_1.magazines()) == 2
 
     def test_add_article(self):
-        """creates and returns a new article given a magazine and title"""
+        
         author_1 = Author("Carry Bradshaw")
         magazine_1 = Magazine("Vogue", "Fashion")
         magazine_2 = Magazine("AD", "Architecture")
@@ -125,7 +125,7 @@ class TestAuthor:
         assert article_3 in magazine_2.articles()
 
     def test_topic_areas(self):
-        """returns a list of topic areas for all articles by author"""
+        
         author_1 = Author("Carry Bradshaw")
         author_2 = Author("Nathaniel Hawthorne")
         magazine_1 = Magazine("Vogue", "Fashion")
